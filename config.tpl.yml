@@ -1,8 +1,8 @@
 ---
 # azure location name as returned by the command : az account list-locations -o table
-location: westeurope
+location: eastus
 # Name of the resource group to create all resources
-resource_group: azhop
+resource_group: HPC-demo
 # If using an existing resource group set to true. Default is false
 use_existing_rg: false
 # Additional tags to be added on the Resource Group
@@ -221,7 +221,7 @@ images:
 queues:
   - name: execute # name of the Cycle Cloud node array
     # Azure VM Instance type
-    vm_size: Standard_F2s_v2
+    vm_size: Standard_DS2_v2
     # maximum number of cores that can be instanciated
     max_core_count: 1024
     # marketplace image name or custom image id
@@ -236,17 +236,17 @@ queues:
     # Set to true to enable Enroot for this partition
     enroot_enabled: false
   - name: hc44rs
-    vm_size: Standard_HC44rs
+    vm_size: Standard_D8s_v3
     max_core_count: 440
     image: /subscriptions/{{subscription_id}}/resourceGroups/{{resource_group}}/providers/Microsoft.Compute/galleries/{{sig_name}}/images/azhop-centos79-v2-rdma-gpgpu/latest
     spot: true
   - name: hb120v2
-    vm_size: Standard_HB120rs_v2
+    vm_size: Standard_D8s_v3
     max_core_count: 1200
     image: /subscriptions/{{subscription_id}}/resourceGroups/{{resource_group}}/providers/Microsoft.Compute/galleries/{{sig_name}}/images/azhop-centos79-v2-rdma-gpgpu/latest
     spot: true
   - name: hb120v3
-    vm_size: Standard_HB120rs_v3
+    vm_size: Standard_D8s_v3
     max_core_count: 1200
     image: /subscriptions/{{subscription_id}}/resourceGroups/{{resource_group}}/providers/Microsoft.Compute/galleries/{{sig_name}}/images/azhop-centos79-v2-rdma-gpgpu/latest
     spot: true
